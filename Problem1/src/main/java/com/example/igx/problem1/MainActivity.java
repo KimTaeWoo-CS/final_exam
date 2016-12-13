@@ -9,13 +9,15 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity /* implements Something1, Something2 */ {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn_getLocation = (Button) findViewById(R.id.btn_getLocation);
-        Button btn_getSensors = (Button) findViewById(R.id.btn_getSensors);
+        final Button btn_getLocation = (Button) findViewById(R.id.btn_getLocation);
+        final Button btn_getSensors = (Button) findViewById(R.id.btn_getSensors);
         Button btn_sendMessage = (Button) findViewById(R.id.btn_sendMessage);
 
         final TextView text_selectedData = (TextView) findViewById(R.id.text_selectedData);
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity /* implements Something1, So
         btn_getLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                text_selectedType.setText("LOCATION");
+                text_selectedData.setText("My Location is X: "  +  "Y: ");
+
+
 
             }
         });
@@ -32,6 +38,11 @@ public class MainActivity extends AppCompatActivity /* implements Something1, So
         btn_getSensors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                text_selectedType.setText("SENSORS");
+
+
+
+                text_selectedData.setText("자이로 : " + "\n" + "근접 : " + "\n" + "온도 : " + "\n");
 
             }
         });
@@ -40,7 +51,9 @@ public class MainActivity extends AppCompatActivity /* implements Something1, So
             @Override
             public void onClick(View v) {
 
+
             }
         });
     }
 }
+

@@ -43,9 +43,14 @@ public class MyBaseAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        // need something here
+        if (convertView == null) {
 
-        return itemLayout;
+        }
+
+        TextView tv1 = (TextView) convertView.findViewById(R.id.text_name);
+        TextView tv2 = (TextView) convertView.findViewById(R.id.text_money);
+
+        return convertView; //itemLayout;
 
     }
 }
